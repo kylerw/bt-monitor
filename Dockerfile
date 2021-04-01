@@ -37,3 +37,5 @@ USER nobody
 WORKDIR /monitor
 CMD ["bash", "monitor.sh", "-D", "/monitor-config", "-V -tad -a -b"]
 
+
+
