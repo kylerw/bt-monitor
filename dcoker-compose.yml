@@ -1,0 +1,21 @@
+version: '2.2'
+
+volumes:
+  config:
+
+services:
+  monitor:
+    build: .
+    image: kylerw/bt-monitor
+    container_name: bt-monitor
+    volumes:
+    # > ./support/init: line 60: /monitor-config/.public_name_cache: Permission denied
+    - config:/monitor-config:rw
+    network_mode: host # bluetooth
+    userns_mode: host # required for host network mode
+    security_opt: [no-new-privileges]
+    # docker-compose >=2.2,<3
+    cpus: 0.4
+    mem_limit: 32M
+
+# https://docs.docker.com/compose/compose-file/compose-file-v2/
