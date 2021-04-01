@@ -36,3 +36,4 @@ USER nobody
 # > line 1986: main_pipe: No such file or directory
 WORKDIR /monitor
 CMD ["bash", "monitor.sh", "-D", "/monitor-config", "-V -tad -a -b"]
+
