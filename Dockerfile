@@ -2,8 +2,8 @@ FROM docker.io/alpine:3.11 as download
 RUN apk add --no-cache git
 USER nobody
 # 0.2.200 (update Makefile)
-ARG MONITOR_VERSION=1deec402b9b6323a964381819b199300259bb584
-RUN git clone https://github.com/andrewjfreyer/monitor /tmp/monitor
+ARG MONITOR_VERSION=beta
+RUN git clone git://github.com/andrewjfreyer/monitor /tmp/monitor
 WORKDIR /tmp/monitor
 RUN git checkout $MONITOR_VERSION \
     && rm -rf .git .gitignore
